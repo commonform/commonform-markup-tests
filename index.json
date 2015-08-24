@@ -1,0 +1,186 @@
+[ { "comment": "simple subform",
+    "markup": "Warranties \\\\ <Vendor> warrants its <Services>",
+    "form": {
+      "content": [
+        { "heading": "Warranties",
+          "form": {
+            "content": [
+              { "use": "Vendor" },
+              " warrants its ",
+              { "use": "Services" } ] } } ] } },
+  { "comment": "ignores comments",
+    "markup": "Warranties \\\\ See {Services}\n  # This is a comment",
+    "form": {
+      "content": [
+        { "heading": "Warranties",
+          "form": {
+            "content": [
+              "See ",
+              { "reference": "Services" } ] } } ] } },
+  { "comment": "subform without heading",
+    "markup": "\\\\ <Vendor> warrants its <Services>",
+    "form": {
+      "content": [
+        { "form": {
+            "content": [
+              { "use": "Vendor" },
+              " warrants its ",
+              { "use": "Services" } ] } } ] } },
+  { "comment": "text continues on next line",
+    "markup": "Warranties \\\\ <Vendor> warrants its <Services>\nwill be performed <Competently>",
+    "form": {
+      "content": [
+        { "heading": "Warranties",
+          "form": {
+            "content": [
+              { "use": "Vendor" },
+              " warrants its ",
+              { "use": "Services" },
+              "will be performed ",
+              { "use": "Competently" } ] } } ] } },
+  { "comment": "contiguous subforms",
+    "markup": "Warranties \\\\ First\nAnother \\\\ Second",
+    "form": {
+      "content": [
+        { "heading": "Warranties",
+          "form": {
+            "content": [ "First" ] } },
+        { "heading": "Another",
+          "form": {
+            "content": [ "Second" ] } } ] } },
+  { "comment": "over indented line",
+    "markup": "First\n        Over-indented",
+    "error": "Line 2 indented too far" },
+  { "comment": "over-indented first line",
+    "markup": "    First\nSecond",
+    "error": "Line 1 indented too far" },
+  { "comment": "missing heading",
+    "markup": "heading \\\\ Text content\n    continues on second line",
+    "error": "Line 2 missing heading" },
+  { "comment": "contiguous subforms",
+    "markup": "First \\\\ Level 1\n    Second \\\\ Level 2",
+    "form": {
+      "content": [
+        { "heading": "First",
+          "form": {
+            "content": [
+              "Level 1",
+              { "heading": "Second",
+                "form": {
+                  "content": [ "Level 2" ] } } ] } } ] } },
+  { "comment": "text only",
+    "markup": "Text content\ncontinues on second line and <Uses>",
+    "form": {
+      "content": [
+        "Text content continues on second line and ",
+        { "use": "Uses" } ] } },
+  { "comment": "",
+    "markup": "Limitation of Liability !! This is important",
+    "form": {
+      "content": [
+        { "heading": "Limitation of Liability",
+          "form": {
+            "conspicuous": "yes",
+            "content": [ "This is important" ] } } ] } },
+  { "comment": "nesting levels",
+    "markup": "Parent \\\\ Text\n    SubForm \\\\ Text\nParagraph <Term>",
+    "form": {
+      "content": [
+        { "heading": "Parent",
+          "form": {
+            "content": [
+              "Text",
+              { "heading": "SubForm",
+                "form": {
+                  "content": [ "Text" ] } },
+              "Paragraph ",
+              { "use": "Term" } ] } } ] } },
+  { "comment": "correctly concatenates paragraphs",
+    "markup": "P \\\\ A\n    S \\\\ B\nC{D}E",
+    "form": {
+      "content": [
+        { "heading": "P",
+          "form": {
+            "content": [
+              "A",
+              { "heading": "S",
+                "form": {
+                  "content": [ "B" ] } },
+              "C",
+              { "reference": "D" },
+              "E" ] } } ] } },
+  { "comment": "real-world example",
+    "markup": "Subject to the terms and conditions and in reliance upon the representations and warranties herein set forth, the <Company> agrees to sell to each <Underwriter>, and each <Underwriter> agrees, severally and not jointly, to purchase from the <Company>, at the [Purchase Price], the respective principal amounts of the <Securities> set forth opposite each respective <Underwriter>'s name in {Underwriters Schedule}, except that, if {Price Schedule} provides for the sale of <Securities> pursuant to delayed delivery arrangements, the respective principal amounts of <Securities> to be purchased by the <Underwriters> shall be as set forth in {Underwriters Schedule}, less the respective amounts of <Contract Securities> determined as provided below. <Securities> to be purchased by the <Underwriters> are herein sometimes called the \"\"Underwriters' Securities\"\" and <Securities> to be purchased pursuant to <Delayed Delivery Contracts> as hereinafter provided are herein called \"\"Contract Securities\"\".",
+    "form": {
+      "content": [
+        "Subject to the terms and conditions and in reliance upon the representations and warranties herein set forth, the ",
+        { "use": "Company" },
+        " agrees to sell to each ",
+        { "use": "Underwriter" },
+        ", and each ",
+        { "use": "Underwriter" },
+        " agrees, severally and not jointly, to purchase from the ",
+        { "use": "Company" },
+        ", at the ",
+        { "blank": "Purchase Price" },
+        ", the respective principal amounts of the ",
+        { "use": "Securities" },
+        " set forth opposite each respective ",
+        { "use": "Underwriter" },
+        "'s name in ",
+        { "reference": "Underwriters Schedule" },
+        ", except that, if ",
+        { "reference": "Price Schedule" },
+        " provides for the sale of ",
+        { "use": "Securities" },
+        " pursuant to delayed delivery arrangements, the respective principal amounts of ",
+        { "use": "Securities" },
+        " to be purchased by the ",
+        { "use": "Underwriters" },
+        " shall be as set forth in ",
+        { "reference": "Underwriters Schedule" },
+        ", less the respective amounts of ",
+        { "use": "Contract Securities" },
+        " determined as provided below. ",
+        { "use": "Securities" },
+        " to be purchased by the ",
+        { "use": "Underwriters" },
+        " are herein sometimes called the ",
+        { "definition": "Underwriters' Securities" },
+        " and ",
+        { "use": "Securities" },
+        " to be purchased pursuant to ",
+        { "use": "Delayed Delivery Contracts" },
+        " as hereinafter provided are herein called ",
+        { "definition": "Contract Securities" },
+        "." ] } },
+  { "comment": "simple text",
+    "markup": "This is a test",
+    "form": {
+      "content": [ "This is a test" ] } },
+  { "comment": "term uses",
+    "markup": "This <Agreement> is a test",
+    "form": {
+      "content": [
+        "This ",
+        { "use": "Agreement" },
+        " is a test" ] } },
+  { "comment": "term definitions",
+    "markup": "This \"\"Agreement\"\" is a test",
+    "form": {
+      "content": [
+        "This ",
+        { "definition": "Agreement" },
+        " is a test" ] } },
+  { "comment": "cross references",
+    "markup": "{Indemnification} survives termination",
+    "form": {
+      "content": [
+        { "reference": "Indemnification" },
+        " survives termination" ] } },
+  { "comment": "blanks",
+    "markup": "[Company] warrants",
+    "form": {
+      "content": [
+        { "blank": "Company" },
+        " warrants" ] } } ]
