@@ -183,4 +183,23 @@
     "form": {
       "content": [
         { "blank": "Company" },
-        " warrants" ] } } ]
+        " warrants" ] } },
+  { "comment": "form without text content",
+    "markup": "Heading \\\\\n    \\\\ Something",
+    "form": {
+      "content": [
+        { "heading": "Heading",
+          "form": {
+            "content": [
+              { "form": {
+                  "content": [ "Something" ] } } ] } } ] } },
+  { "comment": "empty form continues on later line",
+    "markup": "Heading \\\\\n\nSomething",
+    "form": {
+      "content": [
+        { "heading": "Heading",
+          "form": {
+            "content": [ "Something" ] } } ] } },
+  { "comment": "empty form error",
+    "markup": "Heading \\\\",
+    "error": "Line 1 content invalid" } ]
