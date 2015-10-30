@@ -1,5 +1,5 @@
 [ { "comment": "simple subform",
-    "markup": "Warranties \\\\ <Vendor> warrants its <Services>",
+    "markup": "    \\ Warranties \\ <Vendor> warrants its <Services>",
     "form": {
       "content": [
         { "heading": "Warranties",
@@ -9,7 +9,7 @@
               " warrants its ",
               { "use": "Services" } ] } } ] } },
   { "comment": "ignores comments",
-    "markup": "Warranties \\\\ See {Services}\n  # This is a comment",
+    "markup": "    \\ Warranties \\ See {Services}\n  # This is a comment",
     "form": {
       "content": [
         { "heading": "Warranties",
@@ -18,7 +18,7 @@
               "See ",
               { "reference": "Services" } ] } } ] } },
   { "comment": "subform without heading",
-    "markup": "\\\\ <Vendor> warrants its <Services>",
+    "markup": "    \\\\ <Vendor> warrants its <Services>",
     "form": {
       "content": [
         { "form": {
@@ -27,7 +27,7 @@
               " warrants its ",
               { "use": "Services" } ] } } ] } },
   { "comment": "text continues on next line",
-    "markup": "Warranties \\\\ <Vendor> warrants its <Services>\nwill be performed <Competently>",
+    "markup": "    \\ Warranties \\ <Vendor> warrants its <Services>\n    will be performed <Competently>",
     "form": {
       "content": [
         { "heading": "Warranties",
@@ -39,7 +39,7 @@
               "will be performed ",
               { "use": "Competently" } ] } } ] } },
   { "comment": "contiguous subforms",
-    "markup": "Warranties \\\\ First\nAnother \\\\ Second",
+    "markup": "    \\ Warranties \\ First\n    \\ Another \\ Second",
     "form": {
       "content": [
         { "heading": "Warranties",
@@ -55,10 +55,10 @@
     "markup": "    First\nSecond",
     "error": "Line 1 indented too far" },
   { "comment": "missing heading",
-    "markup": "heading \\\\ Text content\n    continues on second line",
+    "markup": "    \\ heading \\ Text content\n        continues on second line",
     "error": "Line 2 missing heading" },
-  { "comment": "contiguous subforms",
-    "markup": "First \\\\ Level 1\n    Second \\\\ Level 2",
+  { "comment": "child subforms",
+    "markup": "    \\ First \\ Level 1\n        \\ Second \\ Level 2",
     "form": {
       "content": [
         { "heading": "First",
@@ -69,13 +69,13 @@
                 "form": {
                   "content": [ "Level 2" ] } } ] } } ] } },
   { "comment": "text only",
-    "markup": "Text content\ncontinues on second line and <Uses>",
+    "markup": "Text content \ncontinues on second line and <Uses>",
     "form": {
       "content": [
         "Text content continues on second line and ",
         { "use": "Uses" } ] } },
-  { "comment": "",
-    "markup": "Limitation of Liability !! This is important",
+  { "comment": "conspicuous form",
+    "markup": "    \\ Limitation of Liability !! This is important",
     "form": {
       "content": [
         { "heading": "Limitation of Liability",
@@ -83,7 +83,7 @@
             "conspicuous": "yes",
             "content": [ "This is important" ] } } ] } },
   { "comment": "nesting levels",
-    "markup": "Parent \\\\ Text\n    SubForm \\\\ Text\nParagraph <Term>",
+    "markup": "    \\ Parent \\ Text\n        \\ SubForm \\ Text\n    Paragraph <Term>",
     "form": {
       "content": [
         { "heading": "Parent",
@@ -96,7 +96,7 @@
               "Paragraph ",
               { "use": "Term" } ] } } ] } },
   { "comment": "correctly concatenates paragraphs",
-    "markup": "P \\\\ A\n    S \\\\ B\nC{D}E",
+    "markup": "    \\ P \\ A\n        \\ S \\ B \n    C{D}E",
     "form": {
       "content": [
         { "heading": "P",
@@ -122,7 +122,7 @@
         " agrees, severally and not jointly, to purchase from the ",
         { "use": "Company" },
         ", at the ",
-        { "blank": "Purchase Price" },
+        { "blank": "" },
         ", the respective principal amounts of the ",
         { "use": "Securities" },
         " set forth opposite each respective ",
@@ -182,10 +182,10 @@
     "markup": "[Company] warrants",
     "form": {
       "content": [
-        { "blank": "Company" },
+        { "blank": "" },
         " warrants" ] } },
   { "comment": "form without text content",
-    "markup": "Heading \\\\\n    \\\\ Something",
+    "markup": "    \\ Heading \\\n        \\\\ Something",
     "form": {
       "content": [
         { "heading": "Heading",
@@ -194,12 +194,12 @@
               { "form": {
                   "content": [ "Something" ] } } ] } } ] } },
   { "comment": "empty form continues on later line",
-    "markup": "Heading \\\\\n\nSomething",
+    "markup": "    \\ Heading \\\n\n    Something",
     "form": {
       "content": [
         { "heading": "Heading",
           "form": {
             "content": [ "Something" ] } } ] } },
   { "comment": "empty form error",
-    "markup": "Heading \\\\",
+    "markup": "    \\ Heading \\",
     "error": "Line 1 content invalid" } ]
