@@ -184,6 +184,12 @@
       "content": [
         { "blank": "" },
         " warrants" ] } },
+  { "comment": "empty blank",
+    "markup": "[] warrants",
+    "form": {
+      "content": [
+        { "blank": "" },
+        " warrants" ] } },
   { "comment": "form without text content",
     "markup": "    \\ Heading \\\n        \\\\ Something",
     "form": {
