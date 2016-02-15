@@ -36,7 +36,7 @@
               { "use": "Vendor" },
               " warrants its ",
               { "use": "Services" },
-              "will be performed ",
+              " will be performed ",
               { "use": "Competently" } ] } } ] } },
   { "comment": "contiguous subforms",
     "markup": "    \\ Warranties \\ First\n    \\ Another \\ Second",
